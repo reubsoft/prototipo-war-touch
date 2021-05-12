@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprite/medievalRTS_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://Script/Bullet.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.07087, 11.6931 )
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 533, 123, 16, 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -19.7611
+margin_top = -27.5394
+margin_right = 20.2389
+margin_bottom = -13.5394
+text = "1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="area_entered" from="." to="." method="_on_Bullet_area_entered"]
